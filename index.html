@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Nest.js Session</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Nest.js</h2>
+          <p>快速搭建基于 NodeJS 的后端服务</p>
+        </section>
+        <section>
+          <h3>Agenda</h3>
+          <ul>
+            <li>Nest.js 简介</li>
+            <li>使用 TypeORM 轻松与数据库交互</li>
+            <li>使用 JWT 鉴权</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h3>Nest.js 是什么?</h3>
+            <p class="fragment">
+              Nest.js 是基于
+              <span class="fragment highlight-red">Node.js</span>开发的
+              <span class="fragment highlight-red">Angular 语法风格</span>的
+              <span class="fragment highlight-red">渐进式</span>后端框架
+            </p>
+          </section>
+          <section>
+			<h3>Angular 语法风格</h3>
+			<pre><code data-line-numbers="1-10|5-9">import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
+@Module({
+  imports: [],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}</code></pre>
+		  </section>
+		  <section>
+			  <h3>渐进式后端框架</h3>
+			  <ul>
+				  <li class="fragment">MVC</li>
+				  <li class="fragment">REST</li>
+				  <li class="fragment">GraphQL</li>
+				  <li class="fragment">Micro-Services</li>
+				  <li class="fragment">Web Sockets</li>
+			  </ul>
+		  </section>
+		</section>
+		<section>
+			<section>
+				<h3>NEST.js 三板斧</h3>
+				<ul>
+					<li>Controller</li>
+					<li>Provider</li>
+					<li>Module</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Controllers</h3>
+				<img src="./images/nest-controller.png">
+			</section>
+			<section>
+				<h3>Providers</h3>
+				<img src="./images/nest-provider.png">
+			</section>
+			<section>
+				<h3>Module</h3>
+				<img src="./images/nest-module.png">
+			</section>
+			<section>
+				<h3>Demo time~</h3>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h2>TYPEORM</h2>
+				<p>快速搭建、操作数据库</p>
+			</section>
+			<section>
+				<h3>什么是 TypeOrm ？</h3>
+				<small>TypeORM 是一种应用于 Node.js 的关系映射框架，它用于实现编程语言里不同类型系统的数据之间的转换。从效果上说，它其实是创建了一个可在编程语言里使用的“虚拟对象数据库”。</small>
+			</section>
+			<section>
+				<h3>举个栗子</h3>
+				<pre><code data-trim data-line-numbers="" style="font-size: 14px;">
+    import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+
+    @Entity()
+    export class User {
+        @PrimaryGeneratedColumn()
+        id: number;
+        @Column()
+        firstName: string;
+        @Column({ nullable: true })
+        middleName: string;
+        @Column()
+        lastName: string;
+        @Column({ type: 'bool', default: false })
+        isMale: boolean;
+    }</code></pre>
+			</section>
+			<section>
+				<h3>Demo time~</h3>
+			</section>
+    </section>
+      <section>
+        <section>
+          <h3>JWT</h3>
+          <p>轻松搞定授权、鉴权问题</p>
+        </section>
+        <section>
+          <h3>什么是 JWT ？</h3>
+          <small>JSON Web Token 是一种开放的行业标准（RFC 7519）方法，用于在双方之间安全地传输数据。</small>
+        </section>
+        <section>
+          <img src="./images/jwt.png" />
+        </section>
+        <section>
+          <img src="./images/jwt-auth.png" />
+        </section>
+        <section>
+          <h3>Demo time~</h3>
+        </section>
+      </section>
+      <section>
+        <h3>Q & A</h3>
+      </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
